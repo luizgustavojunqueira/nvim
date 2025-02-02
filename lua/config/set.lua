@@ -64,3 +64,23 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 vim.opt.conceallevel = 1
+
+vim.diagnostic.config({
+    underline = true,
+    signs = true,
+    update_in_insert = false,
+    severity_sort = true,
+    float = {
+        scope = "line",
+    },
+})
+
+vim.cmd('filetype plugin indent on') -- Enable all filetype plugins
+
+vim.filetype.add({
+    extension = {
+        ['http'] = 'http',
+    },
+})
+
+vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window'

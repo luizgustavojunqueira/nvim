@@ -19,7 +19,7 @@ return {
             codellama = function()
                 return require("codecompanion.adapters").extend("codellama", {
                     env = {
-                        url = "http://localhost:11500",
+                        url = "http://localhost:11434",
                     },
                     parameters = {
                         sync = true,

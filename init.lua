@@ -1,1 +1,1 @@
-require("luizg")
+require("config")

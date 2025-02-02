@@ -16,7 +16,7 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without copying into re
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle the file explorer" })
 
-vim.keymap.set("n", "<C-k>", ":lua vim.diagnostic.open_float(0, {scope='line'})<CR>",
+vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float(0, {scope='line'})<CR>",
     { desc = "Open the diagnostic float window" })
 
 -- Allow moving the cursor through wrapped lines with j, k
