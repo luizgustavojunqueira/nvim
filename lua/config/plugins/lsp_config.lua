@@ -144,7 +144,11 @@ return {
 
             require('mason-lspconfig').setup({
                 ensure_installed = {
-
+                    "lua_ls",
+                    "clangd",
+                    "cssls",
+                    "html",
+                    "ast_grep",
                 },
                 handlers = {
                     -- this first function is the "default handler"
