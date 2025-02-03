@@ -43,8 +43,10 @@ vim.keymap.set('n', '<leader>-', '<C-x>', opts) -- decrement
 
 -- Window management
 vim.keymap.set('n', '<leader>v', '<C-w>v', { desc = "Split window vertically" })
-vim.keymap.set('n', '<leader>s', '<C-w>s', { desc = "Split window horizontally" })
+vim.keymap.set('n', '<leader>h', '<C-w>s', { desc = "Split window horizontally" })
 vim.keymap.set('n', '<leader>cw', ':close<CR>', { desc = "Close the current window" })
 
 -- Replace word under cursor
 vim.keymap.set('n', '<leader>j', '*``cgn', { desc = "Replace the word under the cursor" })
+
+vim.keymap.set('n', '<F2>', '<cmd>lua LspRename()<cr>', opts)

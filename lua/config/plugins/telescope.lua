@@ -4,6 +4,8 @@ return {
         tag = "0.1.6",
         dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep", "sharkdp/fd", "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
 
+
+
         config = function()
             require("telescope").setup({})
 
