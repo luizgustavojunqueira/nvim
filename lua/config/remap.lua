@@ -50,3 +50,18 @@ vim.keymap.set('n', '<leader>cw', ':close<CR>', { desc = "Close the current wind
 vim.keymap.set('n', '<leader>j', '*``cgn', { desc = "Replace the word under the cursor" })
 
 vim.keymap.set('n', '<F2>', '<cmd>lua LspRename()<cr>', opts)
+
+
+vim.keymap.set("n", "<C-h>", function() require("harpoon"):list():select(1) end,
+    { desc = "Select the first harpoon mark" })
+vim.keymap.set("n", "<C-j>", function() require("harpoon"):list():select(2) end,
+    { desc = "Select the second harpoon mark" })
+vim.keymap.set("n", "<C-k>", function() require("harpoon"):list():select(3) end,
+    { desc = "Select the third harpoon mark" })
+vim.keymap.set("n", "<C-l>", function() require("harpoon"):list():select(4) end,
+    { desc = "Select the fourth harpoon mark" })
+
+vim.keymap.set("n", "<M-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Navigate left in tmux" })
+vim.keymap.set("n", "<M-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate down in tmux" })
+vim.keymap.set("n", "<M-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate up in tmux" })
+vim.keymap.set("n", "<M-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate right in tmux" })
