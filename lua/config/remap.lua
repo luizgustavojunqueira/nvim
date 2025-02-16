@@ -14,8 +14,6 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Move the cursor to the previous matc
 
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without copying into register" })
 
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle the file explorer" })
-
 vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float(0, {scope='line'})<CR>",
     { desc = "Open the diagnostic float window" })
 
