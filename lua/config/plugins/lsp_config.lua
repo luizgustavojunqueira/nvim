@@ -13,34 +13,35 @@ return {
 
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-nvim-lsp' },
+            { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-calc' },
             { 'hrsh7th/cmp-emoji' },
             { 'hrsh7th/cmp-nvim-lua' },
             { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-vsnip' },
             { 'hrsh7th/cmp-look' },
-            { "L3MON4D3/LuaSnip" },
             { "onsails/lspkind.nvim" },
         },
         config = function()
             local cmp = require('cmp')
 
-
             cmp.setup({
+                completion = {
+                    autocomplete = false,
+                },
                 formatting = {
                     format = function(entry, vim_item)
                         vim_item.kind = require('lspkind').presets.default[vim_item.kind] .. ' ' .. vim_item.kind
 
                         vim_item.menu = ({
                             nvim_lsp = '[LSP]',
+                            luasnip = '[Snip]',
                             buffer = '[Buffer]',
                             path = '[Path]',
                             calc = '[Calc]',
                             emoji = '[Emoji]',
                             nvim_lua = '[Lua]',
                             treesitter = '[Treesitter]',
-                            vsnip = '[VSnip]',
                             spell = '[Spell]',
                             tags = '[Tags]',
                             look = '[Look]',
@@ -55,16 +56,21 @@ return {
                 },
                 sources = {
                     { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
                     { name = 'buffer' },
                     { name = 'path' },
                     { name = 'calc' },
                     { name = 'emoji' },
                     { name = 'nvim_lua' },
                     { name = 'treesitter' },
-                    { name = 'vsnip' },
                     { name = 'spell' },
                     { name = 'tags' },
                     { name = 'look' },
+                },
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expand(args.body)
+                    end,
                 },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"] = cmp.mapping.complete(),
@@ -88,14 +94,36 @@ return {
                             cmp.complete()
                         end
                     end),
+                    -- Super tab
+                    ['<Tab>'] = cmp.mapping(function(fallback)
+                        if require('luasnip').expand_or_jumpable() then
+                            vim.fn.feedkeys(
+                                vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+                        elseif vim.b._copilot_suggestion ~= nil then
+                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes(vim.fn['copilot#Accept'](), true, true, true),
+                                '')
+                        else
+                            fallback()
+                        end
+                    end, {
+                        'i',
+                        's',
+                    }),
+
+                    -- Super shift tab
+                    ['<S-Tab>'] = cmp.mapping(function(fallback)
+                        local luasnip = require('luasnip')
+
+                        if luasnip.locally_jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { 'i', 's' }),
                 }),
-                snippet = {
-                    expand = function(args)
-                        vim.snippet.expand(args.body)
-                    end,
-                },
             })
         end
+
     },
 
     -- LSP
