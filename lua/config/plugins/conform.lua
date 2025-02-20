@@ -4,9 +4,7 @@ return {
         require("conform").setup({
             formatters_by_ft = {
                 lua = { "stylua" },
-                -- Conform will run multiple formatters sequentially
                 python = { "isort", "black", "ast-grep" },
-                -- Use a sub-list to run only the first available formatter
                 javascript = { "prettier", stop_after_first = true },
                 json = { "prettier", stop_after_first = true },
                 javascriptreact = { "prettier", stop_after_first = true },
@@ -19,7 +17,7 @@ return {
                 c = { "ast-grep" },
                 cu = { "ast-grep" },
                 arduino = { "ast-grep" },
-                go = { "ast-grep" },
+                go = { "gofumpt" },
                 html = { "prettier", stop_after_first = true },
                 css = { "prettier", stop_after_first = true },
             },
@@ -28,7 +26,6 @@ return {
                 lsp_format = "fallback",
             },
             log_level = vim.log.levels.ERROR,
-            -- Conform will notify you when a formatter errors
             notify_on_error = true,
         })
 

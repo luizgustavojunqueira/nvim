@@ -1,6 +1,7 @@
 return {
     "lewis6991/gitsigns.nvim",
-    config = function()
-        require("gitsigns").setup()
-    end,
+    opts = {
+        signcolumn = true,
+        current_line_blame = true,
+    }
 }

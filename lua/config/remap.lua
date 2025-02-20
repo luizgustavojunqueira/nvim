@@ -63,3 +63,10 @@ vim.keymap.set("n", "<M-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Navigate lef
 vim.keymap.set("n", "<M-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate down in tmux" })
 vim.keymap.set("n", "<M-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate up in tmux" })
 vim.keymap.set("n", "<M-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate right in tmux" })
+
+vim.keymap.set(
+    "",
+    "<Leader>ln",
+    require("lsp_lines").toggle,
+    { desc = "Toggle lsp_lines" }
+)

@@ -66,14 +66,17 @@ vim.g.mapleader = " "
 vim.opt.conceallevel = 1
 
 vim.diagnostic.config({
-    underline = true,
-    signs = true,
-    update_in_insert = false,
-    severity_sort = true,
-    float = {
-        scope = "line",
-    },
+    virtual_text = false,
+    virtual_lines = true,
+    -- underline = true,
+    -- signs = true,
+    -- update_in_insert = false,
+    -- severity_sort = true,
+    -- float = {
+    --     scope = "line",
+    -- },
 })
+
 
 vim.cmd('filetype plugin indent on') -- Enable all filetype plugins
 
