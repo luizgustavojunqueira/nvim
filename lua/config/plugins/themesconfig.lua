@@ -28,16 +28,14 @@ return {
                     return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
                 end
                 return {
-                    TelescopeTitle             = { fg = theme.ui.special, bold = true },
-                    TelescopePromptNormal      = { bg = theme.ui.bg_p1 },
-                    TelescopePromptBorder      = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-                    TelescopeResultsNormal     = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-                    TelescopeResultsBorder     = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-                    TelescopePreviewNormal     = { bg = theme.ui.bg_dim },
-                    TelescopePreviewBorder     = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
                     NormalFloat                = { bg = "none" },
                     FloatBorder                = { bg = "none" },
                     FloatTitle                 = { bg = "none" },
+                    SignColumn                 = { bg = "none", fg = theme.ui.fg_dim },
+                    LineNr                     = { bg = "none", fg = theme.ui.fg_dim },
+                    GitSignsAdd                = { bg = "none" },
+                    GitSignsChange             = { bg = "none" },
+                    GitSignsDelete             = { bg = "none" },
 
                     -- Save an hlgroup with dark background and dimmed foreground
                     -- so that you can use it where your still want darker windows.
@@ -46,8 +44,14 @@ return {
 
                     -- Popular plugins that open floats will link to NormalFloat by default;
                     -- set their background accordingly if you wish to keep them dark and borderless
-                    LazyNormal                 = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-                    MasonNormal                = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+                    LazyNormal                 = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+                    SnacksPicker               = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+                    SnacksPickerBorder         = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+                    SnacksPickerTitle          = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+                    SnacksPickerDirectory      = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+                    MasonNormal                = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+                    TabLineFill                = { bg = "none", fg = theme.ui.fg_dim },
+                    TabLineSel                 = { bg = "none", fg = theme.ui.fg },
                     Pmenu                      = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
 
                     PmenuSel                   = { fg = "NONE", bg = theme.ui.bg_p2 },

@@ -18,6 +18,7 @@ return {
                 cu = { "ast-grep" },
                 arduino = { "ast-grep" },
                 go = { "gofumpt" },
+                sql = { "sqlfmt" },
                 html = { "prettier", stop_after_first = true },
                 css = { "prettier", stop_after_first = true },
             },

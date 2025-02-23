@@ -67,6 +67,8 @@ vim.opt.conceallevel = 1
 
 vim.diagnostic.config({
     virtual_text = false,
+    signs = true,
+    underline = true,
     virtual_lines = true,
     -- underline = true,
     -- signs = true,
