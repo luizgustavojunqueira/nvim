@@ -27,6 +27,11 @@ return {
                     local c = require("kanagawa.lib.color")
                     return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
                 end
+                local blendToBg = function(color)
+                    local c = require("kanagawa.lib.color")
+                    -- Blend color to background and make it transparent
+                    return c(color):blend(theme.ui.bg, 0.95):to_hex()
+                end
                 return {
                     NormalFloat                = { bg = "none" },
                     FloatBorder                = { bg = "none" },
@@ -44,12 +49,12 @@ return {
 
                     -- Popular plugins that open floats will link to NormalFloat by default;
                     -- set their background accordingly if you wish to keep them dark and borderless
-                    LazyNormal                 = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
-                    SnacksPicker               = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
-                    SnacksPickerBorder         = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
-                    SnacksPickerTitle          = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
-                    SnacksPickerDirectory      = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
-                    MasonNormal                = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
+                    LazyNormal                 = { bg = blendToBg("#7E9BD8"), fg = theme.ui.fg_dim },
+                    SnacksPicker               = { bg = blendToBg("#7E9BD8"), fg = theme.ui.fg_dim },
+                    SnacksPickerBorder         = { bg = blendToBg("#7E9BD8"), fg = theme.ui.fg_dim },
+                    SnacksPickerTitle          = { bg = blendToBg("#7E9BD8"), fg = theme.ui.fg_dim },
+                    SnacksPickerDirectory      = { bg = blendToBg("#7E9BD8"), fg = theme.ui.fg_dim },
+                    MasonNormal                = { bg = blendToBg("#7E9BD8"), fg = theme.ui.fg_dim },
                     TabLineFill                = { bg = "none", fg = theme.ui.fg_dim },
                     TabLineSel                 = { bg = "none", fg = theme.ui.fg },
                     Pmenu                      = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency

@@ -158,7 +158,7 @@ return {
 
                     volar = function()
                         require('lspconfig').volar.setup({
-                            filetypes = { 'vue', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },
+                            filetypes = { 'vue', 'vuejsx', 'javascript' },
                             init_options = {
                                 vue = {
                                     hybridMode = false,
@@ -166,6 +166,13 @@ return {
                             },
                         })
                     end,
+
+                    ts_ls = function()
+                        require('lspconfig').ts_ls.setup({
+                            filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+                            cmd = { "typescript-language-server", "--stdio" }
+                        })
+                    end
                 }
             })
         end
