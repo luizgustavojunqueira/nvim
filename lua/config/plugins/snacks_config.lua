@@ -3,6 +3,20 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
+        words = {
+            enabled = true,
+        },
+        statuscolumn = {
+            enabled = true,
+        },
+        dim = {
+            enabled = true,
+            scope = {
+                min_size = 5,
+                max_size = 20,
+                siblings = true,
+            },
+        },
         scope = {
             enabled = true,
         },
@@ -58,11 +72,12 @@ return {
             }
         },
         image = {
-            enabled = true,
+            enabled = false,
 
-            -- your image configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
+            doc = {
+                inline = false,
+                float = true,
+            }
         },
         indent = {
             enabled = true,

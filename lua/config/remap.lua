@@ -70,3 +70,6 @@ vim.keymap.set(
     require("lsp_lines").toggle,
     { desc = "Toggle lsp_lines" }
 )
+
+-- Keymap para abrir code actions
+vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Open code actions" })

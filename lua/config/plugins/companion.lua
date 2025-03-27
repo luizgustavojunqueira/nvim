@@ -35,8 +35,8 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat<cr>", { noremap = true, silent = true })
-        vim.keymap.set("n", "<leader>cp", "<cmd>CodeCompanion<cr>", { noremap = true, silent = true })
-        vim.keymap.set('n', '<leader>ca', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>ccc", "<cmd>CodeCompanionChat<cr>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>ccp", "<cmd>CodeCompanion<cr>", { noremap = true, silent = true })
+        vim.keymap.set('n', '<leader>cca', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
     end
 }

@@ -24,6 +24,10 @@ return {
             },
         },
 
+        attachments = {
+            img_folder = "~/Documents/Personal/Obsidian/attachments",
+        },
+
         completion = {
             -- Set to false to disable completion.
             nvim_cmp = true,

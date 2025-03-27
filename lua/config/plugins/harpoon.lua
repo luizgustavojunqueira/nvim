@@ -5,9 +5,7 @@ return {
     config = function()
         local harpoon = require("harpoon")
 
-        -- REQUIRED
         harpoon:setup()
-        -- REQUIRED
 
         vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end,
             { desc = "Add a directory to the harpoon marks" })

@@ -5,7 +5,6 @@ return {
     },
     event = "VeryLazy",
     keys = {
-        -- 👇 in this section, choose your own keymappings!
         {
             "<leader>-",
             function()
@@ -14,7 +13,6 @@ return {
             desc = "Open the file manager",
         },
         {
-            -- Open in the current working directory
             "<leader>cd",
             function()
                 require("yazi").yazi(nil, vim.fn.getcwd())
