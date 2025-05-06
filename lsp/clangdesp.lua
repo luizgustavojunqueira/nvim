@@ -1,6 +1,6 @@
 return {
     cmd = {
-        "/home/luizg/llvm-project/build/bin/clangd",
+        "clangd",
         "--background-index",
         "-j=12",
         "--clang-tidy",
@@ -11,8 +11,8 @@ return {
         "--header-insertion=iwyu",
         "--pch-storage=memory",
         "--suggest-missing-includes",
-        -- "--query-driver=/home/luizg/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-gcc*,/home/luizg/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-g++*,xtensa-esp32-elf-gcc*,xtensa-esp32-elf-g++*",
-        "--query-driver=/home/luizg/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++*,/home/luizg/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++*,xtensa-lx106-elf-gcc*,xtensa-lx106-elf-g++*",
+        "--query-driver=/home/luizg/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-gcc*,/home/luizg/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-g++*,xtensa-esp32-elf-gcc*,xtensa-esp32-elf-g++*",
+        -- "--query-driver=/home/luizg/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++*,/home/luizg/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++*,xtensa-lx106-elf-gcc*,xtensa-lx106-elf-g++*",
         "--log=verbose",
     },
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
