@@ -33,4 +33,5 @@ vim.lsp.config("*", {
     root_markers = { ".git" },
 })
 
-vim.lsp.enable({ "luals", "clangdesp", "volar", "gopls", "templ", "ts_ls", "elixir", "php" })
+vim.lsp.enable({ "luals", "clangdesp", "volar", "gopls", "templ", "ts_ls", "elixir", "php", "hyprls",
+    "java-language-server" })

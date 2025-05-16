@@ -63,7 +63,7 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 2
 
 vim.cmd('filetype plugin indent on') -- Enable all filetype plugins
 

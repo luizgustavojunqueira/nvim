@@ -16,7 +16,7 @@ return {
                 cpp = { "clang-format" },
                 c = { "clang-format" },
                 cu = { "ast-grep" },
-                arduino = { "ast-grep" },
+                arduino = { "clang-format" },
                 go = { "gofumpt" },
                 sql = { "sqlfmt" },
                 html = { "prettier", stop_after_first = true },
