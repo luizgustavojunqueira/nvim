@@ -1,7 +1,7 @@
 return {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-        signcolumn = true,
-        current_line_blame = true,
-    }
+    -- "lewis6991/gitsigns.nvim",
+    -- opts = {
+    --     signcolumn = true,
+    --     current_line_blame = true,
+    -- }
 }

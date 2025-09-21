@@ -2,7 +2,40 @@ return {
     {
         'williamboman/mason.nvim',
         lazy = false,
-        opts = {},
+        opts = {
+        },
+    },
+
+    {
+        "mason-org/mason-lspconfig.nvim",
+        opts = {
+            -- Este handler genérico vai funcionar para a maioria dos LSPs,
+            -- incluindo tsserver, volar, e vtsls (que vai carregar lsp.vtsls)
+            handlers = {
+                function(server_name)
+                    local server_config = require("lsp." .. server_name) or {}
+                    -- O capabilities deve ser o mesmo usado em nvim/lua/config/lsp.lua
+                    local capabilities_from_lsp_config = require("blink.cmp").get_lsp_capabilities(
+                        vim.lsp.protocol.make_client_capabilities()
+                    )
+
+                    server_config.capabilities = vim.tbl_deep_extend(
+                        "force",
+                        {},
+                        capabilities_from_lsp_config,
+                        server_config.capabilities or {}
+                    )
+
+                    require("lspconfig")[server_name].setup(server_config)
+                end,
+            },
+        },
+        dependencies = {
+            -- Note: O opts={} aqui não é realmente usado, pois o Mason principal já está configurado.
+            -- Você pode remover o opts={} aqui ou deixar como está, não causará problemas.
+            { "williamboman/mason.nvim" },
+            "neovim/nvim-lspconfig",
+        },
     },
 
     -- TS Errors Translator

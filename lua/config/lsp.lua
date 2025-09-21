@@ -1,6 +1,13 @@
+-- nvim/lua/config/lsp.lua
+
+local lspconfig = require("lspconfig")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- Integração com o seu blink.cmp
+capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
-
     callback = function(event)
         local opts = { buffer = event.buf }
 
@@ -17,21 +24,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-local capabilities = {
-    textDocument = {
-        foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-        },
-    },
+-- Função on_attach padrão para todos os LSPs
+local on_attach = function(client, bufnr)
+    -- Pode adicionar log aqui se quiser
+    -- vim.notify("LSP started: " .. client.name, vim.log.levels.INFO, { title = "LSP" })
+end
+
+-- Configurações gerais que todos os LSPs podem usar
+local default_lsp_setup_opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
 }
 
-capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+vim.lsp.enable("clangdesp")
 
-vim.lsp.config("*", {
-    capabilities = capabilities,
-    root_markers = { ".git" },
-})
-
-vim.lsp.enable({ "luals", "clangdesp", "volar", "gopls", "templ", "ts_ls", "elixir", "php", "hyprls",
-    "java-language-server" })
+-- Configura o vtsls
+-- Ele vai carregar as opções do seu arquivo nvim/lsp/vtsls.lua
+-- lspconfig.vtsls.setup(vim.tbl_deep_extend("force", {}, default_lsp_setup_opts, require("lsp.vtsls")))
+--
+-- -- Configura outros LSPs que você usa
+-- lspconfig.luals.setup(default_lsp_setup_opts)
+-- lspconfig.clangd.setup(default_lsp_setup_opts) -- Verifique se o nome é 'clangd' e não 'clangdesp'
+-- lspconfig.gopls.setup(default_lsp_setup_opts)
+-- lspconfig.templ.setup(default_lsp_setup_opts)
+-- lspconfig.elixir.setup(default_lsp_setup_opts)
+-- lspconfig.php.setup(default_lsp_setup_opts)
+-- lspconfig.hyprls.setup(default_lsp_setup_opts)
+-- lspconfig["java-language-server"].setup(default_lsp_setup_opts) -- Note a notação de colchetes para nomes com hífen
+-- lspconfig.intelephense.setup(default_lsp_setup_opts)

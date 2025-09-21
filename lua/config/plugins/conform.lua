@@ -20,6 +20,7 @@ return {
                 go = { "gofumpt" },
                 sql = { "sqlfmt" },
                 html = { "prettier", stop_after_first = true },
+                templ = { "templ", stop_after_first = true },
                 css = { "prettier", stop_after_first = true },
             },
             format_on_save = {
